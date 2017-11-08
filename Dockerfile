@@ -1,8 +1,11 @@
 # IMAGE: notuscloud/kafka
-# VERSION: 0.10.1.1
+# VERSION: 0.11.0.1
 
 # As Kafka require JAVA, we build this image from openjdk
 FROM openjdk
+
+ENV kafka_version 0.11.0.1
+ENV kafka_scala 2.11
 
 # Install vim, this make edition more confortable
 # Can be deleted any time to make the docker image lighter
@@ -11,10 +14,10 @@ RUN apt-get update && apt-get install -y vim
 # Create the install directory and install Kafka
 RUN mkdir /install
 WORKDIR /install
-RUN curl -O http://mirrors.ircam.fr/pub/apache/kafka/0.10.1.1/kafka_2.11-0.10.1.1.tgz
-RUN tar xvf kafka_2.11-0.10.1.1.tgz 
-RUN rm kafka_2.11-0.10.1.1.tgz
-RUN mv kafka_2.11-0.10.1.1 kafka
+RUN curl -O http://mirrors.ircam.fr/pub/apache/kafka/${kafka_version}/kafka_${kafka_scala}-${kafka_version}.tgz
+RUN tar xvf kafka_${kafka_scala}-${kafka_version}.tgz 
+RUN rm kafka_${kafka_scala}-${kafka_version}.tgz
+RUN mv kafka_${kafka_scala}-${kafka_version} kafka
 
 # Expose ports
 # The default port is 9092
