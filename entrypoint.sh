@@ -5,6 +5,7 @@
 
 # Default ENV variables
 export KAFKA_LOG_DIRS=${KAFKA_LOG_DIRS:-"/data"}
+export K8S_STATEFULSET=${K8S_STATEFULSET:-false}
 
 # Parse the configured ENV variables starting with KAFKA_ keyword
 KAFKA_VARS=$(env | grep KAFKA_)
@@ -35,6 +36,12 @@ do
   done
   overrideArgs+="--override ${parameter}=${value} "
 done
+
+# Override broker.id with the statefulset ordinal index if this image is used in a statefulset
+# test K8S_STATEFULSET=true
+if [[ ${K8S_STATEFULSET} == true ]] || [[ ${K8S_sTATEFULSET} == "true" ]] ; then
+  overrideArgs+="--override broker.id=${HOSTNAME##*-} "
+fi
 
 # Start kafka 
 ./bin/kafka-server-start.sh config/server.properties ${overrideArgs}
