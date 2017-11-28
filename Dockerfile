@@ -3,7 +3,7 @@
 # As Kafka require JAVA, we build this image from openjdk
 FROM openjdk
 
-ENV kafka_version 1.0.0
+ENV kafka_version 0.11.0.2
 ENV kafka_scala 2.11
 
 # Install vim, this make edition more confortable
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y vim
 # Create the install directory and install Kafka
 RUN mkdir /install
 WORKDIR /install
-RUN curl -O http://mirrors.ircam.fr/pub/apache/kafka/${kafka_version}/kafka_${kafka_scala}-${kafka_version}.tgz
+RUN curl -O http://apache.mirrors.ovh.net/ftp.apache.org/dist/kafka/${kafka_version}/kafka_${kafka_scala}-${kafka_version}.tgz
 RUN tar xvf kafka_${kafka_scala}-${kafka_version}.tgz 
 RUN rm kafka_${kafka_scala}-${kafka_version}.tgz
 RUN mv kafka_${kafka_scala}-${kafka_version} kafka
