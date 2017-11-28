@@ -3,7 +3,7 @@
 # As Kafka require JAVA, we build this image from openjdk
 FROM openjdk
 
-ENV kafka_version 0.10.2.1
+ENV kafka_version 0.10.1.1
 ENV kafka_scala 2.11
 
 # Install vim, this make edition more confortable
