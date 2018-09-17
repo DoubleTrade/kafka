@@ -1,4 +1,4 @@
-# IMAGE: notuscloud/kafka
+# IMAGE: doubletrade/kafka
 
 # Stage1
 FROM alpine as builder

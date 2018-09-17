@@ -1,8 +1,8 @@
-# notuscloud/kafka
+# doubletrade/kafka
 
 # usage
 
-`docker run -ti --rm -p 9092:9092 -v $(pwd):/data notuscloud/kafka:<tag>`
+`docker run -ti --rm -p 9092:9092 -v $(pwd):/data doubletrade/kafka:<tag>`
 
 # Kafka parameters
 

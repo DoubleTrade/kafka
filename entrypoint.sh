@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# notuscloud/kafka
+# doubletrade/kafka
 # This script is the container's' entrypoint
 
 # Default ENV variables
