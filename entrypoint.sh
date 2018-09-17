@@ -9,7 +9,7 @@ export K8S_STATEFULSET=${K8S_STATEFULSET:-false}
 
 # Override broker.id with the statefulset ordinal index if this image is used in a statefulset
 # test K8S_STATEFULSET=true
-if [[ ${K8S_STATEFULSET} == true ]] || [[ ${K8S_sTATEFULSET} == "true" ]] ; then
+if [[ ${K8S_STATEFULSET} == true ]] || [[ ${K8S_STATEFULSET} == "true" ]] ; then
   export K8S_NAMESPACE=${K8S_NAMESPACE:-"default"}
   export K8S_HEADLESS_SERVICE_NAME=${K8S_HEADLESS_SERVICE_NAME:-"kafka"}
   export KAFKA_BROKER_ID=${HOSTNAME##*-}
