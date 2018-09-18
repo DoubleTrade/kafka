@@ -3,7 +3,7 @@
 # Stage1
 FROM alpine as builder
 
-ENV kafka_version 1.1.1
+ENV kafka_version 0.11.0.2
 ENV kafka_scala 2.11
 
 # Prepare the docker image
